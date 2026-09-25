@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Resume | Muhammad Adnan Shahzad</title>
+  <meta name="description" content="Resume of Muhammad Adnan Shahzad — Machine Learning & AI Engineer | Data Analytics & BI | MLOps.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Muhammad Adnan Shahzad</h1>
+    <p class="headline">Machine Learning &amp; AI Engineer | Data Analytics &amp; BI | MLOps</p>
+    <p class="tagline">Montreal, QC, Canada · muhammad.shahzad@unicam.it · +1 438 466 3377</p>
+    <p class="pub-links" style="margin-top:.6rem;">
+      <a href="/assets/cv/Muhammad_Adnan_Shahzad_CV.pdf" class="cv-button" download>Download PDF</a>
+      <a href="https://github.com/adnanphp" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/adnanphy/" target="_blank">LinkedIn</a>
+    </p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/pages/about.html">About</a>
+    <a href="/pages/projects.html">Projects</a>
+    <a href="/pages/publications.html">Publications</a>
+    <a href="/resume.html">Resume</a>
+    <a href="https://github.com/adnanphp" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/adnanphy/" target="_blank">LinkedIn</a>
+    <a href="/assets/cv/Muhammad_Adnan_Shahzad_CV.pdf" class="cv-button" download>Resume / CV</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Profile</h2>
+      <p>
+        Interdisciplinary researcher with a <strong>PhD in Physics</strong> and current
+        training in Computer Science, focusing on <strong>Machine Learning</strong>,
+        <strong>Generative Models</strong>, and <strong>Data-Driven Systems</strong>.
+        Strong background in stochastic processes, numerical simulation, and optimization,
+        with hands-on experience in deep learning, computer vision, and large-scale ML
+        pipelines. Recently completed end-to-end production-grade ML projects spanning
+        traditional ML, computer vision, RAG systems, and business intelligence.
+      </p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>B.Sc. in Computer Science</strong> — Concordia University, Montreal, QC
+          <em>(in progress, expected Fall 2026)</em><br>
+          <span class="muted">Relevant coursework: Machine Learning, Pattern Recognition,
+          Computer Vision, Artificial Intelligence, Big Data Analytics</span>
+        </li>
+        <li>
+          <strong>PhD in Physics</strong> — University of Camerino, Italy (2012–2015)<br>
+          <span class="muted">Thesis: <em>Protein Translocation in Narrow Pores</em> —
+          Molecular Dynamics, Stochastic Processes, Statistical Mechanics</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Research Interests</h2>
+      <p>
+        Machine Learning, Deep Learning, Generative Models, Optimization, Representation
+        Learning, Scientific Machine Learning, Computer Vision, Retrieval-Augmented
+        Generation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+
+      <h3>OpenBI — End-to-End Business Intelligence &amp; ML Platform <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>Full open-source BI stack — Python ETL → PostgreSQL star schema (5 dims, 1 fact, 1 view layer) → Apache Superset → FastAPI — ingesting 9,994 retail transactions; validated $2,297,200.86 revenue end-to-end against source.</li>
+        <li>Idempotent ETL pipeline (pandas, SQLAlchemy, Docker Compose) with ~20 canonical tables and 5 KPI views; reproducible end-to-end via <code>make init</code>.</li>
+        <li>RFM customer segmentation using KMeans on standardized Recency/Frequency/Monetary features; surfaced 7 business segments and identified <strong>$449K of dormant revenue</strong> in an "At Risk" cohort of 102 customers.</li>
+        <li>Sales forecasting pipeline comparing moving-average baseline, Holt–Winters ETS, and XGBoost with lag features; selected winner by holdout MAPE — <strong>ETS: 15.87% MAPE</strong> on a 48-month horizon.</li>
+        <li>3 interactive Apache Superset dashboards (Executive, Sales, Customer) plus a FastAPI service exposing 8 endpoints (<code>/kpis</code>, <code>/customers</code>, <code>/forecasts</code>) with auto-generated Swagger docs.</li>
+        <li>27 tests across unit, integration, and data-quality layers; GitHub Actions CI green on every push.</li>
+        <li><strong>Stack:</strong> Python, PostgreSQL, SQLAlchemy, pandas, scikit-learn, XGBoost, statsmodels, Apache Superset, FastAPI, Docker Compose, GitHub Actions, Airflow, pytest.</li>
+      </ul>
+
+      <h3>Deep Learning Detection of Beyond-GR Deviations in Gravitational Waves <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>Machine-learning pipeline to detect controlled deviations from General Relativity in gravitational-wave signals using synthetic aLIGO noise and real LIGO H1 detector strain from GWOSC.</li>
+        <li>Hybrid classifier combining a 1D CNN on 16,384-sample waveforms with 10 hand-crafted statistics; total 31,697 parameters.</li>
+        <li>Measured detectability curve using real GW150914 strain; detection threshold at <strong>β ≈ 0.25</strong> with accuracy rising from chance (β ≤ 0.2) to perfect classification (β ≥ 0.5).</li>
+        <li>Generalization to unseen deviation types (88–100% accuracy) and binary mass ratios q = 1 to q = 10 (89–93%).</li>
+        <li><strong>Stack:</strong> PyCBC, LALSuite, GWpy, PyTorch, NumPy, SciPy, scikit-learn, Matplotlib, LaTeX.</li>
+      </ul>
+
+      <h3>Hybrid Quantum-Classical Neural Networks for Image Classification <span class="muted">(2025)</span></h3>
+      <ul>
+        <li>Hybrid quantum-classical architectures combining parameterized quantum circuits with deep CNNs (PyTorch, PennyLane); benchmarked on MNIST, CIFAR100, STL10.</li>
+        <li>Consistent accuracy improvements (+9–10% on complex datasets), <strong>5–12× faster training</strong>, up to 32% fewer parameters, enhanced adversarial robustness (ε = 0.1).</li>
+        <li>arXiv submission with reproducible code, datasets, and LaTeX report.</li>
+      </ul>
+
+      <h3>Production LLM Serving Platform with Kubernetes &amp; Observability <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>Production-ready LLM inference platform with FastAPI, Ollama, Redis caching, and Kubernetes orchestration.</li>
+        <li>2+ replicas with HPA; <strong>100% cache hit rate</strong> under load; <strong>21.8 ms</strong> average latency with 10+ concurrent users; 600+ tokens throughput.</li>
+        <li>Prometheus metrics + Grafana dashboards; containerized with Docker; kind cluster with service discovery and load balancing.</li>
+      </ul>
+
+      <h3>ML Monitoring &amp; Observability on Kubernetes <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>Deployed complete ML monitoring with statistical drift detection on Kubernetes.</li>
+        <li>FastAPI with 2 replicas, service discovery, load balancing; MLflow for experiment tracking; Prometheus + Grafana for observability.</li>
+        <li>Production-grade MLOps with Kubernetes, monitoring, and drift detection.</li>
+      </ul>
+
+      <h3>Agentic RAG System with Multi-Tool Support <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>Multi-tool agentic RAG with LangGraph, RAG, SQL, web search, and calculator tools.</li>
+        <li>Agent memory and state management for multi-step reasoning; Chroma vector store.</li>
+        <li>Evaluation metrics: retrieval accuracy, answer correctness, hallucination rate; FastAPI + Docker.</li>
+      </ul>
+
+      <h3>Semantic Search System with Hybrid Retrieval <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>Compared keyword (BM25), vector (FAISS), hybrid, and reranked approaches using sentence embeddings (all-MiniLM-L6-v2).</li>
+        <li><strong>+20% NDCG@5</strong> with hybrid vs. pure keyword or vector search; cross-encoder reranking (ms-marco-MiniLM-L-6-v2).</li>
+        <li>Evaluated using Recall@K, Precision@K, MRR, NDCG.</li>
+      </ul>
+
+      <h3>Kaggle &amp; AI Competitions — 7 Solutions (Top 15–20%) <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>EV Purchase Prediction: 0.94170 AUC (Top 15%) — 5-fold CV + OOF + Rank Averaging (XGBoost, LightGBM, CatBoost).</li>
+        <li>Customer Churn: 0.91258 AUC (Top 15–20%) — 5-model ensemble.</li>
+        <li>ARC-AGI-3: exact model-based BFS planner; solved Level 1 in 13 actions (beating human baseline of 22).</li>
+        <li>Spaceship Titanic: 0.79962 accuracy; House Prices: 0.12669 RMSE (CatBoost + Optuna); Titanic DL: 0.8268 val. accuracy.</li>
+      </ul>
+
+      <h3>Data Engineering + ML Pipeline (Live API) <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>End-to-end pipeline with Kafka, Spark, Airflow, PostgreSQL, and MLflow; deployed REST API on Render.com with real-time prediction endpoints.</li>
+      </ul>
+
+      <h3>Production Recommendation System <span class="muted">(2026)</span></h3>
+      <ul>
+        <li>SVD++ (RMSE 0.9314) on MovieLens + TF-IDF genre similarity; hybrid recommender with FastAPI; Docker + Render.com deployment.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          Shahzad, M.A. <em>Hybrid Quantum-Classical Model for Image Classification.</em>
+          arXiv:2509.13353 (2025). <a href="https://arxiv.org/abs/2509.13353" target="_blank">arXiv</a>
+        </li>
+        <li>
+          Shahzad, M.A. <em>Deep Learning Detection of Beyond-General-Relativity Deviations
+          in Gravitational-Wave Signals.</em> arXiv:2609.19416 (2026).
+          <a href="https://arxiv.org/abs/2609.19416" target="_blank">arXiv</a>
+        </li>
+        <li>
+          Cecconi, F., Shahzad, M.A., et al. <em>Frequency-Control of Protein Translocation
+          Across an Oscillating Nanopore.</em> Phys. Chem. Chem. Phys. (RSC), 2017.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>ML/DL:</strong> PyTorch, TensorFlow, Keras, scikit-learn, XGBoost, LightGBM, CatBoost, Hugging Face Transformers, LangChain, LangGraph</li>
+        <li><strong>Computer Vision:</strong> OpenCV, YOLOv11, Ultralytics, CNNs (ResNet, EfficientNet, VGG), Transfer Learning, Vision Transformers, BLIP-2</li>
+        <li><strong>NLP / LLMs:</strong> Transformers, Embeddings, RAG, NLTK, SpaCy, Ollama (TinyLlama, Llama3.2), Agentic RAG, Tool Calling, Prompt Engineering</li>
+        <li><strong>Generative AI:</strong> Latent Diffusion Models, Stable Diffusion, VAE, GANs, Diffusion Models</li>
+        <li><strong>Quantum ML:</strong> PennyLane, Parameterized Quantum Circuits, Variational Quantum Algorithms</li>
+        <li><strong>Search &amp; IR:</strong> BM25, FAISS, Sentence Transformers, Cross-encoders, Hybrid Search, Chroma, Reranking</li>
+        <li><strong>Data Science:</strong> pandas, NumPy, SciPy, EDA, Feature Engineering, PCA, t-SNE, UMAP</li>
+        <li><strong>MLOps:</strong> FastAPI, Docker, Gradio, Hugging Face Spaces, Render.com, REST APIs, Kubernetes, kind, Helm, GitHub Actions, MLflow, Evidently, Prometheus, Grafana</li>
+        <li><strong>Data Engineering:</strong> Kafka, Spark (PySpark), Airflow, PostgreSQL, SQLAlchemy, ETL, Streaming, DVC</li>
+        <li><strong>Programming:</strong> Python (Advanced), C++, Java, SQL, Bash/Shell</li>
+        <li><strong>Version Control:</strong> Git, GitHub, Git LFS, GitHub Actions, pytest</li>
+        <li><strong>Scientific Computing:</strong> MATLAB, GROMACS, LAMMPS, Numerical Simulation, Stochastic Processes, Optimization</li>
+        <li><strong>Tools:</strong> Jupyter, Emacs, VS Code, LaTeX, Org-mode, Linux/Unix, Conda, Poetry, Makefile</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Research Experience</h2>
+      <h3>PhD Researcher — University of Camerino <span class="muted">(2012–2015)</span></h3>
+      <ul>
+        <li>Molecular dynamics simulations of protein translocation; stochastic transport processes; frequency-driven dynamics.</li>
+        <li>Analyzed large-scale simulation data and developed computational models.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <h3>Assistant Professor — Pakistan <span class="muted">(2017–2019)</span></h3>
+      <ul>
+        <li>Taught physics and computational methods; supervised student projects in simulation and data analysis.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Additional</h2>
+      <ul>
+        <li><strong>Interests:</strong> ML Research, Scientific Computing, MLOps, LLMs, Quantum Computing, AI Agents, Information Retrieval</li>
+        <li><strong>Languages:</strong> English (Fluent), Urdu (Native), Italian (Basic)</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; Adnan —
+      <a href="https://twitter.com/MAShahzad16" target="_blank">Twitter</a> ·
+      <a href="https://www.linkedin.com/in/adnanphy/" target="_blank">LinkedIn</a> ·
+      <a href="https://github.com/adnanphp" target="_blank">GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>

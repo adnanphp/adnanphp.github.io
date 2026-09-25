@@ -16,6 +16,7 @@
     <a href="/">Home</a>
     <a href="/pages/about.html">About</a>
     <a href="/pages/publications.html">Publications</a>
+    <a href="/resume.html">Resume</a>
     <a href="https://github.com/adnanphp" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/adnanphy/" target="_blank">LinkedIn</a>
       <a href="/assets/cv/Muhammad_Adnan_Shahzad_CV.pdf" class="cv-button" download>Resume / CV</a>
@@ -26,6 +27,56 @@
     <!-- ================= HIGHLIGHTS ================= -->
     <section id="highlights">
       <h2>Highlights</h2>
+
+      <!-- 0. OpenBI — flagship data/BI project -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/openbi" target="_blank">
+            OpenBI — End-to-End Business Intelligence &amp; ML Platform
+          </a>
+        </h3>
+        <p class="venue">Python · PostgreSQL · dbt · Apache Superset · scikit-learn · FastAPI · Docker</p>
+        <p class="abstract">
+          Full open-source BI stack: idempotent ETL → PostgreSQL star schema
+          (5 dims, 1 fact, 1 view layer) → Apache Superset dashboards → FastAPI service.
+          Ingested <strong>9,994</strong> retail transactions and validated
+          <strong>$2,297,200.86</strong> revenue end-to-end against source.
+          <strong>RFM + KMeans</strong> segmentation surfaced <strong>$449K</strong> in
+          dormant revenue (102-customer "At Risk" cohort). <strong>ETS forecasting</strong>
+          at <strong>15.87% MAPE</strong> on a 48-month horizon, automatically selected
+          over moving-average and XGBoost baselines. <strong>27 tests</strong> green in CI.
+        </p>
+<pre><code># RFM + KMeans segmentation + KPI view layer
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+
+def rfm_segment(df, n_clusters=7, random_state=42):
+    """Recency, Frequency, Monetary → rule-based business labels."""
+    rfm = (df.groupby("customer_id")
+             .agg(recency  =("invoice_date", lambda s: (df.invoice_date.max() - s.max()).days),
+                  frequency=("invoice_no",   "nunique"),
+                  monetary =("revenue",      "sum"))
+             .reset_index())
+
+    X = StandardScaler().fit_transform(rfm[["recency", "frequency", "monetary"]])
+    rfm["cluster"] = KMeans(n_clusters=n_clusters,
+                            random_state=random_state, n_init=10).fit_predict(X)
+
+    # Map clusters to business-readable labels by centroid ranks
+    ranks = (rfm.groupby("cluster")[["recency", "frequency", "monetary"]]
+                .mean().rank(ascending=False))
+    def label(r):
+        if r.recency <= 2 and r.frequency >= 5: return "Champion"
+        if r.recency >= 5 and r.frequency >= 5: return "At Risk"
+        if r.recency >= 6:                      return "Lost"
+        return "Regular"
+    rfm["segment"] = ranks.apply(label, axis=1)
+    return rfm</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/openbi" target="_blank">Code</a>
+          <a href="/pages/projects.html#highlights">Details</a>
+        </p>
+      </article>
 
       <!-- 1. Beyond-GR Gravitational-Wave Classifier -->
       <article class="pub-card highlight-card">
