@@ -96,3 +96,11 @@ footer {
   margin: 1rem 0;
   overflow-x: auto;
 }
+
+/* Header tagline */
+header .tagline {
+  color: var(--muted);
+  font-size: 0.95em;
+  margin-top: .35rem;
+  max-width: 60ch;
+}
