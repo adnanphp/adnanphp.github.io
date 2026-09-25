@@ -1,0 +1,68 @@
+name: Sync GitHub repos
+
+on:
+  # Weekly — every Monday at 03:00 UTC
+  schedule:
+    - cron: '0 3 * * 1'
+
+  # Manual run from the Actions tab
+  workflow_dispatch:
+
+  # Optional: also run when the fetch script itself changes
+  push:
+    paths:
+      - 'scripts/fetch_repos.py'
+      - '.github/workflows/sync-repos.yml'
+
+# Allow the workflow to push back to the repo
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Use a token with write access to trigger Pages rebuild
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Fetch latest repo metadata
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/fetch_repos.py
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet data/repos.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push if changed
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/repos.json
+          git commit -m "chore: sync repos.json [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Summary
+        run: |
+          if [ "${{ steps.diff.outputs.changed }}" = "true" ]; then
+            echo "✅ repos.json updated and pushed."
+          else
+            echo "ℹ️ No changes — repo list is already up to date."
+          fi

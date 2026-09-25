@@ -1,30 +1,39 @@
 #!/usr/bin/env python3
 """Fetch public repos for adnanphp and save to data/repos.json."""
-import json, urllib.request, urllib.error
+import json, os, urllib.request, urllib.error
 from pathlib import Path
 
 USER = "adnanphp"
 URL  = f"https://api.github.com/users/{USER}/repos?per_page=100&sort=updated"
 OUT  = Path("data/repos.json")
 
-def fetch(url):
-    req = urllib.request.Request(url, headers={
+def headers():
+    h = {
         "Accept": "application/vnd.github+json",
         "User-Agent": "adnanphp-site-builder",
-    })
+    }
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:
+        h["Authorization"] = f"Bearer {token}"
+    return h
+
+def fetch(url):
+    req = urllib.request.Request(url, headers=headers())
     with urllib.request.urlopen(req, timeout=30) as r:
         return json.load(r)
 
 def main():
     repos = fetch(URL)
 
-    # Optional: second page if >100 (you have 30, so not needed, but future-proof)
+    # Handle pagination (>100 repos)
     page = 2
     while True:
         try:
             more = fetch(URL + f"&page={page}")
-            if not more: break
-            repos.extend(more); page += 1
+            if not more:
+                break
+            repos.extend(more)
+            page += 1
         except urllib.error.HTTPError:
             break
 
