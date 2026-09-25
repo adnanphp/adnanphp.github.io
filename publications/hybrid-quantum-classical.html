@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hybrid Quantum-Classical Model for Image Classification | Adnan</title>
+  <meta name="description" content="Hybrid quantum-classical neural networks vs. classical CNNs on MNIST, CIFAR100, and STL10.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Hybrid Quantum-Classical Model for Image Classification</h1>
+    <p>A systematic comparison of hybrid quantum-classical and classical CNNs</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/pages/publications.html">← All publications</a>
+    <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical" target="_blank">GitHub</a>
+  </nav>
+
+  <main>
+
+    <p class="badges">
+      <a href="https://arxiv.org/abs/2509.13353" target="_blank">
+        <img src="https://img.shields.io/badge/arXiv-2509.13353-b31b1b.svg" alt="arXiv">
+      </a>
+      <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white" alt="Python">
+      <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch">
+      <img src="https://img.shields.io/badge/PennyLane-Quantum-4B8BBE" alt="PennyLane">
+      <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT">
+      <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical/actions" target="_blank">
+        <img src="https://github.com/adnanphp/Hybrid-Quantum-Classical/actions/workflows/ci.yml/badge.svg" alt="CI">
+      </a>
+    </p>
+
+    <h2>Abstract</h2>
+    <p>
+      This study presents a systematic comparison between hybrid quantum-classical
+      neural networks and purely classical models across three benchmark datasets
+      (MNIST, CIFAR100, and STL10) to evaluate their performance, efficiency, and
+      robustness. The hybrid models integrate parameterized quantum circuits with
+      classical deep learning architectures, while the classical counterparts use
+      conventional convolutional neural networks (CNNs). Experiments were conducted
+      over 50 training epochs for each dataset, with evaluations on validation
+      accuracy, test accuracy, training time, computational resource usage, and
+      adversarial robustness (tested with ε = 0.1 perturbations).
+    </p>
+    <p>
+      Key findings demonstrate that hybrid models consistently outperform classical
+      models in final accuracy, achieving <strong>99.38% (MNIST)</strong>,
+      <strong>41.69% (CIFAR100)</strong>, and <strong>74.05% (STL10)</strong>
+      validation accuracy, compared to classical benchmarks of 98.21%, 32.25%, and
+      63.76%, respectively. Notably, the hybrid advantage scales with dataset
+      complexity, showing the most significant gains on CIFAR100 (+9.44%) and STL10
+      (+10.29%). Hybrid models also train <strong>5–12× faster</strong> (e.g.,
+      21.23 s vs. 108.44 s per epoch on MNIST) and use <strong>6–32% fewer
+      parameters</strong> while maintaining superior generalization to unseen test
+      data. Adversarial robustness tests reveal that hybrid models are significantly
+      more resilient on simpler datasets (e.g., 45.27% robust accuracy on MNIST vs.
+      10.80% for classical) but show comparable fragility on complex datasets like
+      CIFAR100 (∼1% robustness for both). Resource efficiency analyses indicate that
+      hybrid models consume less memory (4–5 GB vs. 5–6 GB for classical) and lower
+      CPU utilization (9.5% vs. 23.2% on average).
+    </p>
+
+    <h2>Key Results</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Dataset</th>
+          <th>Classical Accuracy</th>
+          <th>Hybrid Accuracy</th>
+          <th>Difference</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>MNIST</td>    <td>98.21%</td> <td><strong>99.38%</strong></td> <td><strong>+1.17 pp</strong></td></tr>
+        <tr><td>CIFAR100</td> <td>32.25%</td> <td><strong>41.69%</strong></td> <td><strong>+9.44 pp</strong></td></tr>
+        <tr><td>STL10</td>    <td>63.76%</td> <td><strong>74.05%</strong></td> <td><strong>+10.29 pp</strong></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Efficiency Findings</h2>
+    <ul>
+      <li><strong>5–12× faster training</strong> in many experimental settings</li>
+      <li><strong>6–32% fewer parameters</strong></li>
+      <li>Lower CPU and memory usage in several configurations</li>
+      <li>Quantum circuits are <em>simulated</em>, not executed on physical hardware</li>
+    </ul>
+
+    <h2>Adversarial Robustness</h2>
+    <p>
+      Robustness experiments use adversarial perturbations with
+      <code>ε = 0.1</code>. Hybrid models show improved robustness on simpler
+      datasets (45.27% robust accuracy on MNIST vs. 10.80% for classical) but
+      comparable fragility on complex datasets like CIFAR100 (∼1% for both).
+    </p>
+
+    <h2>Method</h2>
+    <div class="formula">
+      <strong>Classical CNN:</strong> Conv Layers → Feature Extraction → Classification<br><br>
+      <strong>Hybrid:</strong> Classical CNN → Feature Compression → Parameterized
+      Quantum Circuit → Quantum Measurements → Classical Classifier
+    </div>
+
+    <h2>Experimental Setup</h2>
+    <table>
+      <tbody>
+        <tr><td>Training epochs</td>  <td>50</td></tr>
+        <tr><td>Datasets</td>         <td>MNIST, CIFAR100, STL10</td></tr>
+        <tr><td>Classical model</td>  <td>CNN</td></tr>
+        <tr><td>Hybrid model</td>     <td>CNN + Parameterized Quantum Circuit</td></tr>
+        <tr><td>Quantum backend</td>  <td>Simulated</td></tr>
+        <tr><td>Adversarial test</td> <td>ε = 0.1</td></tr>
+        <tr><td>Framework</td>        <td>PyTorch + PennyLane</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Links</h2>
+    <ul>
+      <li>📄 <a href="https://arxiv.org/abs/2509.13353" target="_blank">arXiv:2509.13353</a></li>
+      <li>🔗 <a href="https://doi.org/10.48550/arXiv.2509.13353" target="_blank">DOI: 10.48550/arXiv.2509.13353</a></li>
+      <li>💻 <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical" target="_blank">Code on GitHub</a></li>
+    </ul>
+
+    <h2>Reproduce</h2>
+<pre><code>git clone https://github.com/adnanphp/Hybrid-Quantum-Classical.git
+cd Hybrid-Quantum-Classical
+
+pip install torch torchvision pennylane matplotlib scikit-learn numpy
+
+# Classical baseline
+python codes/train_classical.py --dataset MNIST --epochs 50
+
+# Hybrid quantum-classical model
+python codes/train_hybrid.py   --dataset MNIST --epochs 50
+
+# Evaluate
+python codes/evaluate.py --model hybrid --dataset CIFAR100</code></pre>
+
+    <h2>Citation</h2>
+<pre><code>@article{shahzad2025hybrid,
+  title   = {Hybrid Quantum-Classical Model for Image Classification},
+  author  = {Shahzad, Muhammad Adnan},
+  journal = {arXiv preprint arXiv:2509.13353},
+  year    = {2025}
+}</code></pre>
+
+  </main>
+
+  <footer>
+    <p>&copy; Adnan — <a href="https://twitter.com/MAShahzad16">Twitter</a></p>
+  </footer>
+</body>
+</html>

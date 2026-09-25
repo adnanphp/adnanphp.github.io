@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Beyond-GR GW Classifier | Adnan</title>
+  <meta name="description" content="Deep-learning detection of beyond-GR deviations in gravitational-wave signals.">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Beyond-GR Gravitational-Wave Classifier</h1>
+    <p>Deep learning detection of Beyond-General-Relativity deviations in gravitational-wave signals</p>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/pages/publications.html">← All publications</a>
+    <a href="https://github.com/adnanphp/beyond-gr-gw-classifier" target="_blank">GitHub</a>
+  </nav>
+
+  <main>
+
+    <p class="badges">
+      <a href="https://arxiv.org/abs/2609.19416" target="_blank">
+        <img src="https://img.shields.io/badge/arXiv-2609.19416-b31b1b.svg" alt="arXiv">
+      </a>
+      <img src="https://img.shields.io/badge/Python-3.11%2B-blue?logo=python" alt="Python">
+      <img src="https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c?logo=pytorch" alt="PyTorch">
+      <img src="https://img.shields.io/badge/PyCBC-Gravitational%20Waves-orange" alt="PyCBC">
+      <img src="https://img.shields.io/badge/GWpy-LIGO%20Analysis-purple" alt="GWpy">
+      <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT">
+    </p>
+
+    <h2>Abstract</h2>
+    <p>
+      We study machine-learning detection of controlled beyond-General-Relativity
+      (beyond-GR) deviations in gravitational-wave signals, using both synthetic
+      aLIGO-PSD noise and real LIGO H1 detector strain. Three deviation families
+      are applied to General-Relativistic inspiral-merger-ringdown waveforms:
+      amplitude modulation, phase modulation, and frequency modulation, each
+      parameterized by a dimensionless strength coefficient β. A hybrid classifier
+      combining a one-dimensional convolutional neural network with ten hand-crafted
+      waveform statistics is trained on GR and modified waveforms and tested on a
+      deviation type excluded from training. The central result is a quantitative
+      detectability curve as a function of β. Using the real GW150914 strain as a
+      template and real H1 detector noise, we find a detection threshold at
+      <strong>β ≈ 0.25</strong>, with accuracy rising smoothly from chance at
+      β ≤ 0.2 to perfect classification at β ≥ 0.5.
+    </p>
+
+    <h2>Key Results</h2>
+    <table>
+      <thead>
+        <tr><th>Experiment</th><th>Result</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Synthetic noise, β ∈ [0.3, 1.0]</td><td>Detection threshold at SNR ≈ 20</td></tr>
+        <tr><td>Real LIGO noise, β ∈ [5, 20]</td><td>&gt;96% accuracy at SNR 5–10</td></tr>
+        <tr><td>Real LIGO noise, β ∈ [0.3, 0.5]</td><td>Threshold at β ≈ 0.4</td></tr>
+        <tr><td>GW150914 template, β ∈ [0.3, 0.4]</td><td>90.0% test-unseen accuracy</td></tr>
+        <tr><td>Unseen deviation type</td><td>Accurate generalization to type C</td></tr>
+        <tr><td>Mass-ratio study</td><td>89–93% accuracy for q = 1–10</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Detection Threshold Curve</h2>
+    <p>For the GW150914 template at SNR 20:</p>
+    <table>
+      <thead>
+        <tr><th>β Range</th><th>Test-Unseen Accuracy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0.01–0.2</td><td>0.517</td></tr>
+        <tr><td>0.2–0.3</td><td>0.750</td></tr>
+        <tr><td>0.3–0.4</td><td>0.900</td></tr>
+        <tr><td>0.4–0.5</td><td>0.967</td></tr>
+        <tr><td>0.5–1.0</td><td>1.000</td></tr>
+        <tr><td>5–20</td><td>1.000</td></tr>
+      </tbody>
+    </table>
+    <p><em>Observed detection transition:</em> <strong>β ≈ 0.25</strong>.</p>
+
+    <h2>Method</h2>
+    <p>
+      The classifier combines a three-block <strong>1D CNN</strong> that processes
+      the 16,384-sample waveform with a second branch that computes ten
+      hand-crafted statistics (mean abs. amplitude, std, max, P95, P99, P99.9,
+      P99.99, RMS, skewness, kurtosis) passed through a two-layer MLP. Both
+      branches are fused into a classification head.
+    </p>
+    <p><strong>Total trainable parameters:</strong> 31,697</p>
+
+    <h2>Beyond-GR Deviations</h2>
+    <div class="formula">
+      <strong>Amplitude:</strong> h(t) → h(t)(1 + βτ²)<br>
+      <strong>Phase:</strong> h(t) → A(t) cos(φ(t) + βτ²)<br>
+      <strong>Frequency:</strong> φ(t) → φ(t) + 2π β f<sub>ref</sub> τ² / 2
+    </div>
+    <p>where τ ∈ [0, 1] is normalized time from inspiral to merger.</p>
+
+    <h2>Links</h2>
+    <ul>
+      <li>📄 <a href="https://arxiv.org/abs/2609.19416" target="_blank">arXiv:2609.19416</a></li>
+      <li>🔗 <a href="https://doi.org/10.48550/arXiv.2609.19416" target="_blank">DOI: 10.48550/arXiv.2609.19416</a></li>
+      <li>💻 <a href="https://github.com/adnanphp/beyond-gr-gw-classifier" target="_blank">Code on GitHub</a></li>
+    </ul>
+
+    <h2>Reproduce</h2>
+<pre><code>conda create -n beyondgr python=3.11 -y
+conda activate beyondgr
+conda install -c conda-forge "numpy=1.26" "scipy&lt;1.14" pycbc lalsuite gwpy -y
+pip install torch scikit-learn pandas tqdm pyyaml matplotlib pytest
+
+python -m src.data.build_dataset --n_per_class 200 --snr_min 15 --snr_max 20 --noise_source synthetic
+python scripts/step7_train_cnn.py --epochs 200 --lr 0.003
+python scripts/step9_evaluate.py</code></pre>
+
+    <h2>Scientific Scope</h2>
+    <p>
+      The β thresholds reported characterize the specific phenomenological waveform
+      modifications and experimental setup used in this work. They are
+      <strong>not generic constraints on modified-gravity theories</strong>. The
+      results should be interpreted as a machine-learning detectability study
+      rather than an observational exclusion or discovery.
+    </p>
+
+    <h2>Citation</h2>
+<pre><code>@misc{shahzad2026beyondgr,
+  title  = {Deep Learning Detection of Beyond-General-Relativity Deviations
+            in Gravitational-Wave Signals: A Detection-Threshold Study
+            with Real LIGO Noise},
+  author = {Muhammad Adnan Shahzad},
+  year   = {2026},
+  eprint = {2609.19416},
+  archivePrefix = {arXiv},
+  primaryClass  = {gr-qc},
+  doi    = {10.48550/arXiv.2609.19416}
+}</code></pre>
+
+  </main>
+
+  <footer>
+    <p>&copy; Adnan — <a href="https://twitter.com/MAShahzad16">Twitter</a></p>
+  </footer>
+</body>
+</html>

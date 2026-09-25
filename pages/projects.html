@@ -6,18 +6,67 @@
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-  <header><h1>Projects</h1></header>
+  <header>
+    <h1>Projects</h1>
+    <p>Research code and software</p>
+  </header>
   <nav>
     <a href="/">Home</a>
     <a href="/pages/about.html">About</a>
+    <a href="/pages/publications.html">Publications</a>
   </nav>
+
   <main>
+    <ul class="pub-list">
+
+      <li class="pub-card">
+        <h3>
+          <a href="https://github.com/adnanphp/beyond-gr-gw-classifier" target="_blank">
+            Beyond-GR Gravitational-Wave Classifier
+          </a>
+        </h3>
+        <p class="venue">Python · PyTorch · PyCBC · GWpy · LALSuite</p>
+        <p class="abstract">
+          Deep-learning classifier for detecting beyond-General-Relativity
+          deviations in LIGO gravitational-wave signals. Hybrid 1D-CNN +
+          hand-crafted statistics. Detection threshold at β ≈ 0.25.
+        </p>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/beyond-gr-gw-classifier" target="_blank">Code</a>
+          <a href="https://arxiv.org/abs/2609.19416" target="_blank">Paper</a>
+          <a href="/publications/beyond-gr-gw-classifier.html">Details</a>
+        </p>
+      </li>
+
+      <li class="pub-card">
+        <h3>
+          <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical" target="_blank">
+            Hybrid Quantum-Classical Model for Image Classification
+          </a>
+        </h3>
+        <p class="venue">Python · PyTorch · PennyLane</p>
+        <p class="abstract">
+          Hybrid quantum-classical neural networks vs. classical CNNs on MNIST,
+          CIFAR100, and STL10. Higher accuracy, 5–12× faster training, and
+          6–32% fewer parameters.
+        </p>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical" target="_blank">Code</a>
+          <a href="https://arxiv.org/abs/2509.13353" target="_blank">Paper</a>
+          <a href="/publications/hybrid-quantum-classical.html">Details</a>
+        </p>
+      </li>
+
+    </ul>
+
+    <h2>Language Folders</h2>
     <ul>
-      <li><a href="/projects/cpp/">C++</a></li>
-      <li><a href="/projects/python/">Python</a></li>
-      <li><a href="/projects/java/">Java</a></li>
+      <li><a href="/projects/cpp/">C++ projects</a></li>
+      <li><a href="/projects/python/">Python projects</a></li>
+      <li><a href="/projects/java/">Java projects</a></li>
     </ul>
   </main>
-  <footer><p>&copy; Adnan</p></footer>
+
+  <footer><p>&copy; Adnan — <a href="https://twitter.com/MAShahzad16">Twitter</a></p></footer>
 </body>
 </html>
