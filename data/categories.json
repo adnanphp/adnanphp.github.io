@@ -1,0 +1,90 @@
+{
+  "featured": [
+    "beyond-gr-gw-classifier",
+    "Hybrid-Quantum-Classical",
+    "openbi",
+    "agentic-rag-system",
+    "llm-serving-platform",
+    "ml-monitoring-kubernetes",
+    "data-engineering-pipeline",
+    "semantic-search-system",
+    "recommendation-system",
+    "mlops-pipeline"
+  ],
+  "groups": [
+    {
+      "title": "Machine Learning & Deep Learning",
+      "slug": "ml",
+      "repos": [
+        "kaggle-ml-projects",
+        "kaggle-smartphone-addiction",
+        "da_Stock-sentiment_analysis_NLP",
+        "plant-disease-classification",
+        "ffhq-ldm-analysis",
+        "Hybrid-Quantum-Classical",
+        "beyond-gr-gw-classifier",
+        "cryoem-synthetic-dataset"
+      ]
+    },
+    {
+      "title": "Computer Vision & Multimodal AI",
+      "slug": "cv",
+      "repos": [
+        "object-detector",
+        "plant-disease-classification",
+        "multimodal-ai",
+        "ffhq-ldm-analysis",
+        "cryoem-synthetic-dataset",
+        "PINNTORP-Chair-OpenGL"
+      ]
+    },
+    {
+      "title": "LLMs, RAG & Agentic AI",
+      "slug": "llm",
+      "repos": [
+        "agentic-rag-system",
+        "rag-chatbot-tinyllama",
+        "ai-agent-tool-integration",
+        "llm-serving-platform",
+        "semantic-search-system",
+        "multimodal-ai"
+      ]
+    },
+    {
+      "title": "MLOps, Deployment & Observability",
+      "slug": "mlops",
+      "repos": [
+        "mlops-pipeline",
+        "ml-monitoring-kubernetes",
+        "kubernetes-deployment-kind",
+        "llm-serving-platform",
+        "house-price-prediction",
+        "fastapi-app",
+        "data-engineering-pipeline"
+      ]
+    },
+    {
+      "title": "Data Engineering, Analytics & BI",
+      "slug": "data",
+      "repos": [
+        "openbi",
+        "data-engineering-pipeline",
+        "r-analytics-platform",
+        "da_Stock-sentiment_analysis_NLP",
+        "CopyForward-Publishing-System",
+        "cfp-publishing-system"
+      ]
+    },
+    {
+      "title": "Software, Systems & Tools",
+      "slug": "tools",
+      "repos": [
+        "cfp-publishing-system",
+        "CopyForward-Publishing-System",
+        "PINNTORP-Chair-OpenGL",
+        "create-emacs-python-ml-workflow",
+        "fastapi-app"
+      ]
+    }
+  ]
+}
