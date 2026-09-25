@@ -165,3 +165,23 @@ header .tagline {
   padding-bottom: .35rem;
   border-bottom: 1px solid #eee;
 }
+
+/* ---------- Highlight cards ---------- */
+.highlight-card {
+  border-left: 4px solid var(--accent);
+}
+.highlight-card pre {
+  max-height: 420px;
+  overflow-y: auto;
+  font-size: 0.82em;
+  line-height: 1.5;
+}
+.highlight-card pre code {
+  display: block;
+  padding: 0;
+  background: transparent;
+}
+.highlight-card .venue {
+  font-weight: 500;
+  color: #555;
+}

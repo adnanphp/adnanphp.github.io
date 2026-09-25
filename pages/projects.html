@@ -21,16 +21,315 @@
   </nav>
 
   <main>
+
+    <!-- ================= HIGHLIGHTS ================= -->
+    <section id="highlights">
+      <h2>Highlights</h2>
+
+      <!-- 1. Beyond-GR Gravitational-Wave Classifier -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/beyond-gr-gw-classifier" target="_blank">
+            Beyond-GR Gravitational-Wave Classifier
+          </a>
+        </h3>
+        <p class="venue">Python · PyTorch · PyCBC · GWpy · LALSuite</p>
+        <p class="abstract">
+          Hybrid 1D-CNN + 10 hand-crafted waveform statistics for detecting controlled
+          deviations from General Relativity. Detection threshold measured at
+          <strong>β ≈ 0.25</strong> using real GW150914 strain and LIGO H1 noise.
+          <strong>31,697</strong> trainable parameters. <strong>90%</strong> test-unseen
+          accuracy on β ∈ [0.3, 0.4].
+        </p>
+<pre><code>class HybridGWClassifier(nn.Module):
+    """1D-CNN + statistical features → GR vs Beyond-GR."""
+    def __init__(self, n_stats=10, n_classes=2):
+        super().__init__()
+        self.cnn = nn.Sequential(
+            ConvBlock(1, 16, stride=8),    # 16384 → 2048
+            ConvBlock(16, 32, stride=2),   # 2048 → 1024
+            ConvBlock(32, 64, stride=2),   # 1024 → 512
+            nn.AdaptiveAvgPool1d(1),
+        )
+        self.stats_mlp = nn.Sequential(
+            nn.Linear(n_stats, 32), nn.ReLU(),
+            nn.Linear(32, 32),      nn.ReLU(),
+        )
+        self.head = nn.Linear(64 + 32, n_classes)
+
+    def forward(self, x, stats):
+        h = self.cnn(x).flatten(1)      # learned representation
+        s = self.stats_mlp(stats)       # hand-crafted features
+        return self.head(torch.cat([h, s], dim=-1))</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/beyond-gr-gw-classifier" target="_blank">Code</a>
+          <a href="https://arxiv.org/abs/2609.19416" target="_blank">Paper</a>
+          <a href="/publications/beyond-gr-gw-classifier.html">Details</a>
+        </p>
+      </article>
+
+      <!-- 2. Hybrid Quantum-Classical -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical" target="_blank">
+            Hybrid Quantum-Classical Model for Image Classification
+          </a>
+        </h3>
+        <p class="venue">Python · PyTorch · PennyLane</p>
+        <p class="abstract">
+          Classical CNN → compressed features → parameterized quantum circuit → classifier.
+          Up to <strong>+10.29 pp</strong> accuracy (STL10), <strong>5–12×</strong> faster
+          training, <strong>6–32%</strong> fewer parameters vs. classical CNN baselines.
+          Validated on MNIST, CIFAR100, STL10.
+        </p>
+<pre><code>import pennylane as qml
+
+dev = qml.device("default.qubit", wires=n_qubits)
+
+@qml.qnode(dev)
+def quantum_circuit(inputs, weights):
+    """Parameterized quantum circuit applied to compressed CNN features."""
+    qml.AngleEmbedding(inputs, wires=range(n_qubits))
+    qml.StronglyEntanglingLayers(weights, wires=range(n_qubits))
+    return [qml.expval(qml.PauliZ(i)) for i in range(n_qubits)]
+
+class HybridQCNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(3, 16, 3, padding=1), nn.ReLU(),
+            nn.MaxPool2d(2),
+            nn.Conv2d(16, 32, 3, padding=1), nn.ReLU(),
+            nn.AdaptiveAvgPool2d(1),
+        )
+        self.compress = nn.Linear(32, n_qubits)   # classical → quantum interface
+        self.qlayer = qml.qnn.TorchLayer(quantum_circuit, {"weights": (n_layers, n_qubits, 3)})
+        self.classifier = nn.Linear(n_qubits, n_classes)
+
+    def forward(self, x):
+        x = self.features(x).flatten(1)
+        x = torch.tanh(self.compress(x)) * (3.14159 / 2)  # scale to [-π/2, π/2]
+        x = self.qlayer(x)
+        return self.classifier(x)</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/Hybrid-Quantum-Classical" target="_blank">Code</a>
+          <a href="https://arxiv.org/abs/2509.13353" target="_blank">Paper</a>
+          <a href="/publications/hybrid-quantum-classical.html">Details</a>
+        </p>
+      </article>
+
+      <!-- 3. OpenBI -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/openbi" target="_blank">
+            OpenBI — End-to-End Business Intelligence Platform
+          </a>
+        </h3>
+        <p class="venue">Python · PostgreSQL · dbt · Apache Superset · scikit-learn · FastAPI</p>
+        <p class="abstract">
+          Full open-source BI stack: ETL → PostgreSQL star schema → Superset dashboards
+          → FastAPI. Ingested <strong>9,994</strong> retail transactions,
+          validated <strong>$2,297,200.86</strong> revenue. RFM segmentation surfaced
+          <strong>$449K</strong> in dormant revenue. ETS forecasting at
+          <strong>15.87% MAPE</strong> on 48-month horizon.
+        </p>
+<pre><code>-- RFM segmentation: cluster customers by recency, frequency, monetary value
+WITH rfm AS (
+  SELECT
+    customer_id,
+    MAX(invoice_date)                       AS last_purchase,
+    COUNT(DISTINCT invoice_no)              AS frequency,
+    SUM(quantity * unit_price)              AS monetary
+  FROM retail.transactions
+  GROUP BY customer_id
+),
+rfm_scored AS (
+  SELECT
+    customer_id,
+    NTILE(5) OVER (ORDER BY last_purchase DESC) AS r_score,  -- recent = high
+    NTILE(5) OVER (ORDER BY frequency)          AS f_score,
+    NTILE(5) OVER (ORDER BY monetary)           AS m_score
+  FROM rfm
+)
+SELECT
+  customer_id,
+  r_score || f_score || m_score AS rfm_segment,
+  CASE
+    WHEN r_score >= 4 AND f_score >= 4 AND m_score >= 4 THEN 'Champion'
+    WHEN r_score <= 2 AND f_score >= 4 THEN 'At Risk'
+    WHEN r_score <= 1 THEN 'Lost'
+    ELSE 'Regular'
+  END AS business_label
+FROM rfm_scored;</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/openbi" target="_blank">Code</a>
+        </p>
+      </article>
+
+      <!-- 4. Agentic RAG -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/agentic-rag-system" target="_blank">
+            Advanced Agentic RAG System with Multi-Tool Support
+          </a>
+        </h3>
+        <p class="venue">Python · LangGraph · Chroma · Ollama · FastAPI</p>
+        <p class="abstract">
+          Multi-tool agentic RAG with <strong>RAG</strong>, <strong>SQL</strong>,
+          <strong>web search</strong>, and <strong>calculator</strong> tools.
+          Agent memory and state management for complex multi-step reasoning.
+          Evaluation metrics: retrieval accuracy, answer correctness, hallucination rate.
+        </p>
+<pre><code>from langgraph.graph import StateGraph, END
+
+class AgentState(TypedDict):
+    messages: Annotated[list, add_messages]
+    tool_calls: list
+    intermediate_steps: list
+
+def build_agent_graph():
+    graph = StateGraph(AgentState)
+
+    graph.add_node("agent",     call_model)
+    graph.add_node("tools",     ToolNode(tools=[rag_tool, sql_tool, web_search, calculator]))
+    graph.add_node("evaluate",  evaluate_response)
+
+    graph.set_entry_point("agent")
+
+    graph.add_conditional_edges(
+        "agent",
+        should_continue,               # decide: call tools or finish
+        {"tools": "tools", "evaluate": "evaluate", "end": END},
+    )
+    graph.add_edge("tools", "agent")   # loop back with tool results
+
+    return graph.compile()
+
+# Usage
+agent = build_agent_graph()
+result = agent.invoke({
+    "messages": [HumanMessage("What were our top 5 products by revenue last quarter?")]
+})
+print(result["messages"][-1].content)</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/agentic-rag-system" target="_blank">Code</a>
+        </p>
+      </article>
+
+      <!-- 5. LLM Serving Platform -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/llm-serving-platform" target="_blank">
+            Production LLM Serving Platform with Kubernetes &amp; Observability
+          </a>
+        </h3>
+        <p class="venue">Python · FastAPI · Ollama · Redis · Kubernetes · Prometheus · Grafana</p>
+        <p class="abstract">
+          Production-ready LLM inference platform. <strong>100%</strong> cache hit rate
+          under load. <strong>21.8 ms</strong> average latency with
+          <strong>10+</strong> concurrent users. <strong>600+</strong> tokens
+          throughput. HPA-backed with 2+ replicas.
+        </p>
+<pre><code># FastAPI endpoint with Redis caching and Prometheus metrics
+from fastapi import FastAPI
+from prometheus_client import Counter, Histogram, generate_latest
+import redis, hashlib, json
+
+app = FastAPI()
+cache = redis.Redis(host="redis-svc", port=6379, decode_responses=True)
+
+REQUEST_COUNT = Counter("llm_requests_total", "Total LLM requests", ["endpoint", "cached"])
+LATENCY = Histogram("llm_request_duration_seconds", "LLM latency", ["cached"])
+
+@app.post("/generate")
+@LATENCY.labels(cached="false").time()
+async def generate(prompt: str, max_tokens: int = 256):
+    key = f"llm:{hashlib.sha256(prompt.encode()).hexdigest()}"
+
+    # 1. Check Redis cache
+    if cached := cache.get(key):
+        REQUEST_COUNT.labels(endpoint="/generate", cached="true").inc()
+        return {"text": json.loads(cached), "cached": True}
+
+    # 2. Call Ollama backend
+    resp = await ollama_client.generate(prompt, max_tokens)
+    cache.setex(key, 3600, json.dumps(resp.text))   # 1-hour TTL
+
+    REQUEST_COUNT.labels(endpoint="/generate", cached="false").inc()
+    return {"text": resp.text, "cached": False}
+
+@app.get("/metrics")
+def metrics():
+    return Response(generate_latest(), media_type="text/plain")</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/llm-serving-platform" target="_blank">Code</a>
+        </p>
+      </article>
+
+      <!-- 6. ML Monitoring on Kubernetes -->
+      <article class="pub-card highlight-card">
+        <h3>
+          <a href="https://github.com/adnanphp/ml-monitoring-kubernetes" target="_blank">
+            Production ML Monitoring &amp; Observability on Kubernetes
+          </a>
+        </h3>
+        <p class="venue">Python · FastAPI · MLflow · Prometheus · Grafana · Kubernetes</p>
+        <p class="abstract">
+          Complete ML monitoring system with statistical drift detection deployed on a
+          kind cluster. FastAPI serving with <strong>2 replicas</strong>, service
+          discovery, and load balancing. MLflow for experiment tracking.
+          Prometheus + Grafana for real-time metrics and dashboards.
+        </p>
+<pre><code># Statistical drift detection with KS-test on live predictions
+import numpy as np
+from scipy.stats import ks_2samp
+from prometheus_client import Gauge
+
+DRIFT_SCORE = Gauge("model_drift_ks_statistic", "KS drift statistic vs baseline")
+DRIFT_ALERT = Gauge("model_drift_alert", "1 if drift detected, 0 otherwise")
+
+class DriftMonitor:
+    def __init__(self, baseline_predictions: np.ndarray, threshold: float = 0.05):
+        self.baseline = baseline_predictions
+        self.threshold = threshold
+
+    def check(self, recent_predictions: np.ndarray) -> dict:
+        # Two-sample Kolmogorov–Smirnov test
+        ks_stat, p_value = ks_2samp(self.baseline, recent_predictions)
+        drift_detected = p_value < self.threshold
+
+        DRIFT_SCORE.set(ks_stat)
+        DRIFT_ALERT.set(int(drift_detected))
+
+        return {
+            "ks_statistic": float(ks_stat),
+            "p_value": float(p_value),
+            "drift_detected": bool(drift_detected),
+            "baseline_size": len(self.baseline),
+            "recent_size": len(recent_predictions),
+        }</code></pre>
+        <p class="pub-links">
+          <a href="https://github.com/adnanphp/ml-monitoring-kubernetes" target="_blank">Code</a>
+        </p>
+      </article>
+
+    </section>
+
+    <hr>
+
+    <!-- ================= FEATURED (auto-generated) ================= -->
     <section>
       <h2>Featured</h2>
       <ul class="repo-grid" id="featured-grid"></ul>
     </section>
 
+    <!-- ================= GROUPS (auto-generated) ================= -->
     <section>
       <h2>Browse by Area</h2>
       <div id="groups"></div>
     </section>
 
+    <!-- ================= OTHER (auto-generated) ================= -->
     <section>
       <h2>Other repositories</h2>
       <ul class="repo-grid" id="other-grid"></ul>
@@ -54,15 +353,20 @@
 
     const byName = Object.fromEntries(repos.map(r => [r.name, r]));
 
+    function escapeHtml(s) {
+      return s.replace(/[&<>"']/g, c => (
+        {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    }
+
     function repoCard(r) {
       const lang = r.language ? `<span class="repo-lang">${r.language}</span>` : "";
       const stars = r.stargazers_count ? `<span class="repo-stars">★ ${r.stargazers_count}</span>` : "";
       const topics = (r.topics || []).slice(0, 4)
-        .map(t => `<span class="tag">${t}</span>`).join("");
+        .map(t => `<span class="tag">${escapeHtml(t)}</span>`).join("");
       const desc = r.description ? escapeHtml(r.description) : "<em>No description.</em>";
       return `
         <li class="repo-card">
-          <h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
+          <h3><a href="${r.html_url}" target="_blank" rel="noopener">${escapeHtml(r.name)}</a></h3>
           <p class="repo-desc">${desc}</p>
           <p class="repo-meta">${lang}${stars}</p>
           ${topics ? `<p class="repo-topics">${topics}</p>` : ""}
@@ -71,11 +375,6 @@
             ${r.homepage ? `<a href="${r.homepage}" target="_blank">Live</a>` : ""}
           </p>
         </li>`;
-    }
-
-    function escapeHtml(s) {
-      return s.replace(/[&<>"']/g, c => (
-        {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
     }
 
     // Featured
@@ -90,7 +389,7 @@
       if (!list.length) return "";
       return `
         <section id="group-${g.slug}">
-          <h3 class="group-title">${g.title}</h3>
+          <h3 class="group-title">${escapeHtml(g.title)}</h3>
           <ul class="repo-grid">${list.map(repoCard).join("")}</ul>
         </section>`;
     }).join("");
