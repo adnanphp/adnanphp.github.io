@@ -1,5 +1,31 @@
 [
   {
+    "name": "Hybrid-Quantum-Classical",
+    "description": "Hybrid Quantum-Classical Model for Image Classification: The hybrid models integrate parameterized quantum circuits with classical deep learning architectures, while the classical counterparts use conventional convolutional neural networks (CNNs). ",
+    "html_url": "https://github.com/adnanphp/Hybrid-Quantum-Classical",
+    "homepage": null,
+    "language": "Python",
+    "topics": [],
+    "stargazers_count": 3,
+    "forks_count": 1,
+    "updated_at": "2026-09-26T16:25:24Z",
+    "pushed_at": "2026-09-26T16:25:20Z",
+    "archived": false
+  },
+  {
+    "name": "openbi",
+    "description": "End-to-end open-source Business Intelligence platform with data pipelines, PostgreSQL data warehouse, dbt, Apache Superset dashboards, customer analytics, and ML-based forecasting",
+    "html_url": "https://github.com/adnanphp/openbi",
+    "homepage": null,
+    "language": "Python",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-09-25T18:00:53Z",
+    "pushed_at": "2026-09-25T18:00:49Z",
+    "archived": false
+  },
+  {
     "name": "adnanphp.github.io",
     "description": null,
     "html_url": "https://github.com/adnanphp/adnanphp.github.io",
@@ -8,8 +34,8 @@
     "topics": [],
     "stargazers_count": 0,
     "forks_count": 0,
-    "updated_at": "2026-09-25T03:10:04Z",
-    "pushed_at": "2026-09-25T03:10:00Z",
+    "updated_at": "2026-09-25T03:38:31Z",
+    "pushed_at": "2026-09-25T03:38:27Z",
     "archived": false
   },
   {
@@ -244,32 +270,6 @@
     "forks_count": 0,
     "updated_at": "2026-09-24T23:29:41Z",
     "pushed_at": "2026-09-24T23:29:37Z",
-    "archived": false
-  },
-  {
-    "name": "Hybrid-Quantum-Classical",
-    "description": "Hybrid Quantum-Classical Model for Image Classification: The hybrid models integrate parameterized quantum circuits with classical deep learning architectures, while the classical counterparts use conventional convolutional neural networks (CNNs). ",
-    "html_url": "https://github.com/adnanphp/Hybrid-Quantum-Classical",
-    "homepage": null,
-    "language": "Python",
-    "topics": [],
-    "stargazers_count": 3,
-    "forks_count": 1,
-    "updated_at": "2026-09-25T01:36:42Z",
-    "pushed_at": "2026-09-24T23:27:20Z",
-    "archived": false
-  },
-  {
-    "name": "openbi",
-    "description": "End-to-end open-source Business Intelligence platform with data pipelines, PostgreSQL data warehouse, dbt, Apache Superset dashboards, customer analytics, and ML-based forecasting",
-    "html_url": "https://github.com/adnanphp/openbi",
-    "homepage": null,
-    "language": "Python",
-    "topics": [],
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "updated_at": "2026-09-24T23:24:23Z",
-    "pushed_at": "2026-09-24T23:24:19Z",
     "archived": false
   },
   {
