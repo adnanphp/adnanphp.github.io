@@ -1,5 +1,68 @@
 [
   {
+    "name": "openbi-gcp-cloud",
+    "description": "GCP deployment architecture for OpenBI \u2014 Terraform, GKE, GCS, Cloud SQL, Pub/Sub, Cloud Run \u2014 statically validated; live deployment requires a GCP project.",
+    "html_url": "https://github.com/adnanphp/openbi-gcp-cloud",
+    "homepage": null,
+    "language": "HCL",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-12T06:50:15Z",
+    "pushed_at": "2026-10-12T06:50:11Z",
+    "archived": false
+  },
+  {
+    "name": "openbi-aws-cloud",
+    "description": "AWS deployment architecture for OpenBI \u2014 Terraform, Kubernetes, IAM, and deployment scripts. Statically validated; live deployment requires an AWS account.",
+    "html_url": "https://github.com/adnanphp/openbi-aws-cloud",
+    "homepage": null,
+    "language": "HCL",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-11T23:53:17Z",
+    "pushed_at": "2026-10-11T23:53:14Z",
+    "archived": false
+  },
+  {
+    "name": "dask",
+    "description": "Parallel computing with task scheduling",
+    "html_url": "https://github.com/adnanphp/dask",
+    "homepage": "https://dask.org",
+    "language": null,
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-09T21:04:01Z",
+    "pushed_at": "2026-10-09T22:07:26Z",
+    "archived": false
+  },
+  {
+    "name": "openbi-labs",
+    "description": "Deep-dive explorations of the tools behind OpenBI \u2014 Kafka, Spark internals, Kubernetes, data quality, observability, streaming, and ML",
+    "html_url": "https://github.com/adnanphp/openbi-labs",
+    "homepage": "https://github.com/adnanphp/openbi",
+    "language": null,
+    "topics": [
+      "data-engineering",
+      "dbt",
+      "kafka",
+      "kubernetes",
+      "machine-learning",
+      "observability",
+      "portfolio",
+      "spark",
+      "streaming",
+      "terraform"
+    ],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-08T20:44:02Z",
+    "pushed_at": "2026-10-08T20:43:58Z",
+    "archived": false
+  },
+  {
     "name": "openbi",
     "description": "End-to-end open-source data platform: Spark + Delta Lake batch pipelines, Kafka streaming, dbt transformations, Airflow orchestration, Superset dashboards, FastAPI service, and Kubernetes deployment. Two scales, one platform.",
     "html_url": "https://github.com/adnanphp/openbi",
@@ -29,8 +92,34 @@
     ],
     "stargazers_count": 0,
     "forks_count": 0,
-    "updated_at": "2026-10-04T20:42:09Z",
-    "pushed_at": "2026-10-04T20:42:05Z",
+    "updated_at": "2026-10-07T21:32:36Z",
+    "pushed_at": "2026-10-07T21:32:29Z",
+    "archived": false
+  },
+  {
+    "name": "openbi-desktop",
+    "description": "Native Linux desktop client for OpenBI",
+    "html_url": "https://github.com/adnanphp/openbi-desktop",
+    "homepage": null,
+    "language": "Python",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-05T22:25:08Z",
+    "pushed_at": "2026-10-05T22:25:04Z",
+    "archived": false
+  },
+  {
+    "name": "adnanphp.github.io",
+    "description": null,
+    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
+    "homepage": "https://adnanphp.github.io/",
+    "language": "HTML",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-05T10:11:03Z",
+    "pushed_at": "2026-10-05T10:10:59Z",
     "archived": false
   },
   {
@@ -44,19 +133,6 @@
     "forks_count": 0,
     "updated_at": "2026-10-04T15:31:15Z",
     "pushed_at": "2026-10-04T15:31:12Z",
-    "archived": false
-  },
-  {
-    "name": "adnanphp.github.io",
-    "description": null,
-    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
-    "homepage": "https://adnanphp.github.io/",
-    "language": "HTML",
-    "topics": [],
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "updated_at": "2026-09-28T09:32:11Z",
-    "pushed_at": "2026-09-28T09:32:06Z",
     "archived": false
   },
   {
