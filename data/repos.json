@@ -1,15 +1,43 @@
 [
   {
-    "name": "openbi-gcp-cloud",
-    "description": "GCP deployment architecture for OpenBI \u2014 Terraform, GKE, GCS, Cloud SQL, Pub/Sub, Cloud Run \u2014 statically validated; live deployment requires a GCP project.",
-    "html_url": "https://github.com/adnanphp/openbi-gcp-cloud",
+    "name": "da_Stock-sentiment_analysis_NLP",
+    "description": "Multi-source financial ML pipeline: stocks + news + Reddit sentiment \u2192 1,795 features \u2192 PCA \u2192 XGBoost/LightGBM/MLP/CNN/LSTM \u2192 backtesting. 20 documented stages.",
+    "html_url": "https://github.com/adnanphp/da_Stock-sentiment_analysis_NLP",
+    "homepage": "",
+    "language": "Python",
+    "topics": [
+      "data-scienc",
+      "data-science",
+      "financial-analysis",
+      "lightgbm",
+      "machine-learning",
+      "nlp",
+      "pca",
+      "portfolio-project",
+      "scikit-learn",
+      "sentiment-analysis",
+      "tensorflow",
+      "time-series",
+      "tsne",
+      "xgboost"
+    ],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-17T01:41:15Z",
+    "pushed_at": "2026-10-16T23:14:46Z",
+    "archived": false
+  },
+  {
+    "name": "engineering-learning-lab",
+    "description": "Hands-on engineering experiments connecting infrastructure tools and Python libraries through shared concepts, reproducible examples, and technical reflections.",
+    "html_url": "https://github.com/adnanphp/engineering-learning-lab",
     "homepage": null,
-    "language": "HCL",
+    "language": null,
     "topics": [],
     "stargazers_count": 0,
     "forks_count": 0,
-    "updated_at": "2026-10-12T06:50:15Z",
-    "pushed_at": "2026-10-12T06:50:11Z",
+    "updated_at": "2026-10-12T20:41:13Z",
+    "pushed_at": "2026-10-12T20:41:09Z",
     "archived": false
   },
   {
@@ -21,8 +49,34 @@
     "topics": [],
     "stargazers_count": 0,
     "forks_count": 0,
-    "updated_at": "2026-10-11T23:53:17Z",
-    "pushed_at": "2026-10-11T23:53:14Z",
+    "updated_at": "2026-10-12T20:35:59Z",
+    "pushed_at": "2026-10-12T20:35:54Z",
+    "archived": false
+  },
+  {
+    "name": "adnanphp.github.io",
+    "description": null,
+    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
+    "homepage": "https://adnanphp.github.io/",
+    "language": "HTML",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-12T10:28:30Z",
+    "pushed_at": "2026-10-12T10:28:26Z",
+    "archived": false
+  },
+  {
+    "name": "openbi-gcp-cloud",
+    "description": "GCP deployment architecture for OpenBI \u2014 Terraform, GKE, GCS, Cloud SQL, Pub/Sub, Cloud Run \u2014 statically validated; live deployment requires a GCP project.",
+    "html_url": "https://github.com/adnanphp/openbi-gcp-cloud",
+    "homepage": null,
+    "language": "HCL",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-12T06:50:15Z",
+    "pushed_at": "2026-10-12T06:50:11Z",
     "archived": false
   },
   {
@@ -90,9 +144,9 @@
       "stream-processing",
       "terraform"
     ],
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "forks_count": 0,
-    "updated_at": "2026-10-07T21:32:36Z",
+    "updated_at": "2026-10-15T22:51:03Z",
     "pushed_at": "2026-10-07T21:32:29Z",
     "archived": false
   },
@@ -107,19 +161,6 @@
     "forks_count": 0,
     "updated_at": "2026-10-05T22:25:08Z",
     "pushed_at": "2026-10-05T22:25:04Z",
-    "archived": false
-  },
-  {
-    "name": "adnanphp.github.io",
-    "description": null,
-    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
-    "homepage": "https://adnanphp.github.io/",
-    "language": "HTML",
-    "topics": [],
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "updated_at": "2026-10-05T10:11:03Z",
-    "pushed_at": "2026-10-05T10:10:59Z",
     "archived": false
   },
   {
@@ -250,19 +291,6 @@
     "forks_count": 0,
     "updated_at": "2026-09-24T23:47:32Z",
     "pushed_at": "2026-09-24T23:47:28Z",
-    "archived": false
-  },
-  {
-    "name": "da_Stock-sentiment_analysis_NLP",
-    "description": "Multi-Source Financial Sentiment Analysis for Stock Movement Prediction. Financial prediction system using multi-source data and machine learning",
-    "html_url": "https://github.com/adnanphp/da_Stock-sentiment_analysis_NLP",
-    "homepage": null,
-    "language": "Python",
-    "topics": [],
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "updated_at": "2026-09-24T23:46:19Z",
-    "pushed_at": "2026-09-24T23:46:14Z",
     "archived": false
   },
   {
