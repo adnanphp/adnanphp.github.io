@@ -1,5 +1,18 @@
 [
   {
+    "name": "adnanphp.github.io",
+    "description": null,
+    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
+    "homepage": "https://adnanphp.github.io/",
+    "language": "HTML",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-10-19T08:38:22Z",
+    "pushed_at": "2026-10-19T08:38:18Z",
+    "archived": false
+  },
+  {
     "name": "da_Stock-sentiment_analysis_NLP",
     "description": "Multi-source financial ML pipeline: stocks + news + Reddit sentiment \u2192 1,795 features \u2192 PCA \u2192 XGBoost/LightGBM/MLP/CNN/LSTM \u2192 backtesting. 20 documented stages.",
     "html_url": "https://github.com/adnanphp/da_Stock-sentiment_analysis_NLP",
@@ -23,7 +36,7 @@
     ],
     "stargazers_count": 0,
     "forks_count": 0,
-    "updated_at": "2026-10-17T01:41:15Z",
+    "updated_at": "2026-10-21T18:30:39Z",
     "pushed_at": "2026-10-16T23:14:46Z",
     "archived": false
   },
@@ -51,19 +64,6 @@
     "forks_count": 0,
     "updated_at": "2026-10-12T20:35:59Z",
     "pushed_at": "2026-10-12T20:35:54Z",
-    "archived": false
-  },
-  {
-    "name": "adnanphp.github.io",
-    "description": null,
-    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
-    "homepage": "https://adnanphp.github.io/",
-    "language": "HTML",
-    "topics": [],
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "updated_at": "2026-10-12T10:28:30Z",
-    "pushed_at": "2026-10-12T10:28:26Z",
     "archived": false
   },
   {
