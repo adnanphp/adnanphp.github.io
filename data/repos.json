@@ -1,5 +1,31 @@
 [
   {
+    "name": "excel-analytics-portfolio",
+    "description": "Spreadsheet analytics portfolio: data cleaning, pivot tables, and dashboards in LibreOffice Calc, exported to Excel-compatible .xlsx.",
+    "html_url": "https://github.com/adnanphp/excel-analytics-portfolio",
+    "homepage": null,
+    "language": null,
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-11-13T12:31:02Z",
+    "pushed_at": "2026-11-13T12:32:49Z",
+    "archived": false
+  },
+  {
+    "name": "production-ml-platform",
+    "description": "Production ML platform: promotion gate, model registry, canary serving, drift detection, automated rollback.",
+    "html_url": "https://github.com/adnanphp/production-ml-platform",
+    "homepage": null,
+    "language": "Python",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-11-12T02:13:48Z",
+    "pushed_at": "2026-11-12T01:13:43Z",
+    "archived": false
+  },
+  {
     "name": "adnanphp.github.io",
     "description": null,
     "html_url": "https://github.com/adnanphp/adnanphp.github.io",
@@ -8,8 +34,8 @@
     "topics": [],
     "stargazers_count": 0,
     "forks_count": 0,
-    "updated_at": "2026-11-02T10:43:44Z",
-    "pushed_at": "2026-11-02T10:43:40Z",
+    "updated_at": "2026-11-09T11:07:35Z",
+    "pushed_at": "2026-11-09T11:07:30Z",
     "archived": false
   },
   {
