@@ -1,5 +1,31 @@
 [
   {
+    "name": "intel-iris-xe-inference-lab",
+    "description": "Benchmarking and optimizing deep learning inference on Intel Iris Xe integrated graphics with OpenVINO \u2014 CPU vs GPU, batch sizes, async, multiprocess, and multi-model comparison.",
+    "html_url": "https://github.com/adnanphp/intel-iris-xe-inference-lab",
+    "homepage": null,
+    "language": "Python",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-11-22T00:58:26Z",
+    "pushed_at": "2026-11-22T03:07:30Z",
+    "archived": false
+  },
+  {
+    "name": "adnanphp.github.io",
+    "description": null,
+    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
+    "homepage": "https://adnanphp.github.io/",
+    "language": "HTML",
+    "topics": [],
+    "stargazers_count": 0,
+    "forks_count": 0,
+    "updated_at": "2026-11-09T11:07:35Z",
+    "pushed_at": "2026-11-16T10:49:17Z",
+    "archived": false
+  },
+  {
     "name": "excel-analytics-portfolio",
     "description": "Spreadsheet analytics portfolio: data cleaning, pivot tables, and dashboards in LibreOffice Calc, exported to Excel-compatible .xlsx.",
     "html_url": "https://github.com/adnanphp/excel-analytics-portfolio",
@@ -23,19 +49,6 @@
     "forks_count": 0,
     "updated_at": "2026-11-12T02:13:48Z",
     "pushed_at": "2026-11-12T01:13:43Z",
-    "archived": false
-  },
-  {
-    "name": "adnanphp.github.io",
-    "description": null,
-    "html_url": "https://github.com/adnanphp/adnanphp.github.io",
-    "homepage": "https://adnanphp.github.io/",
-    "language": "HTML",
-    "topics": [],
-    "stargazers_count": 0,
-    "forks_count": 0,
-    "updated_at": "2026-11-09T11:07:35Z",
-    "pushed_at": "2026-11-09T11:07:30Z",
     "archived": false
   },
   {
